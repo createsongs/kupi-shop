@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>KUPI OFFICIAL SHOP</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #fffafc;
+      color: #493c42;
+    }
+    header {
+      background: white;
+      padding: 18px 16px;
+      text-align: center;
+      border-bottom: 1px solid #f5e2e9;
+    }
+    header h1 {
+      font-size: 21px;
+      letter-spacing: 3px;
+      margin: 0;
+    }
+    header p {
+      font-size: 11px;
+      letter-spacing: 2px;
+      margin: 6px 0 0;
+    }
+    .hero {
+      padding: 30px 20px;
+      text-align: center;
+      background: #fff0f5;
+    }
+    .hero img {
+      width: 75%;
+      max-width: 280px;
+      height: auto;
+    }
+    .hero h2 {
+      font-size: 22px;
+      margin: 15px 0 8px;
+    }
+    .hero p {
+      font-size: 13px;
+      line-height: 1.8;
+    }
+    .shop {
+      max-width: 1000px;
+      margin: auto;
+      padding: 28px 15px;
+    }
+    .shop h2 {
+      font-size: 19px;
+      text-align: center;
+      margin-bottom: 25px;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .product {
+      background: white;
+      border: 1px solid #f2e4e9;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .product-image {
+      aspect-ratio: 1;
+      background: #f9eef2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #aa929b;
+      font-size: 12px;
+    }
+    .product-info { padding: 12px; }
+    .product-name {
+      font-size: 13px;
+      margin: 0 0 8px;
+    }
+    .price {
+      font-size: 15px;
+      font-weight: bold;
+      margin: 0;
+    }
+    footer {
+      text-align: center;
+      padding: 30px 15px;
+      font-size: 11px;
+      background: #fff0f5;
+    }
+    @media (min-width: 768px) {
+      .products {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>KUPI</h1>
+  <p>OFFICIAL GOODS SHOP</p>
+</header>
+
+<section class="hero">
+  <img src="images/kupi.png" alt="くぴ">
+  <h2>Welcome to KUPI SHOP</h2>
+  <p>くぴのオフィシャルグッズショップへようこそ♡</p>
+</section>
+
+<main class="shop">
+  <h2>GOODS COLLECTION</h2>
+  <div class="products">
+    <div class="product">
+      <div class="product-image">商品画像</div>
+      <div class="product-info">
+        <p class="product-name">商品登録予定</p>
+        <p class="price">価格未設定</p>
+      </div>
+    </div>
+    <div class="product">
+      <div class="product-image">商品画像</div>
+      <div class="product-info">
+        <p class="product-name">商品登録予定</p>
+        <p class="price">価格未設定</p>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © KUPI OFFICIAL SHOP
+</footer>
+
+</body>
+</html>
