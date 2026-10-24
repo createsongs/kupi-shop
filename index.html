@@ -29,16 +29,17 @@
       letter-spacing: 2px;
       margin: 6px 0 0;
     }
-    .hero {
-      padding: 30px 20px;
-      text-align: center;
-      background: #fff0f5;
-    }
-    .hero img {
-      width: 75%;
-      max-width: 280px;
-      height: auto;
-    }
+.hero {
+  padding: 30px 0;
+  text-align: center;
+  background: #fff0f5;
+}
+.hero img {
+  display: block;
+  width: 100%;
+  max-width: none;
+  height: auto;
+}
     .hero h2 {
       font-size: 22px;
       margin: 15px 0 8px;
@@ -62,31 +63,48 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 14px;
     }
-    .product {
-      background: white;
-      border: 1px solid #f2e4e9;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .product-image {
-      aspect-ratio: 1;
-      background: #f9eef2;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #aa929b;
-      font-size: 12px;
-    }
-    .product-info { padding: 12px; }
-    .product-name {
-      font-size: 13px;
-      margin: 0 0 8px;
-    }
-    .price {
-      font-size: 15px;
-      font-weight: bold;
-      margin: 0;
-    }
+
+.product {
+  background: white;
+  border: 1px solid #f2e4e9;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-image {
+  aspect-ratio: 1;
+  background: #f9eef2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aa929b;
+  font-size: 12px;
+}
+
+
+.product-info {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: flex-start;
+}
+
+.product-name {
+  font-size: 13px;
+  margin: 0 0 8px;
+  line-height: 18px;
+}
+
+.price {
+  font-size: 15px;
+  font-weight: bold;
+  margin: auto 0 0;
+}
+
+
     footer {
       text-align: center;
       padding: 30px 15px;
@@ -98,7 +116,92 @@
         grid-template-columns: repeat(4, 1fr);
       }
     }
-  </style>
+.product > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background: #f9eef2;
+}
+.product:last-child > img {
+  aspect-ratio: auto;
+  height: auto;
+}
+
+.product-status {
+  display: inline-block;
+  align-self: flex-start;
+  padding: 4px 9px;
+  margin-bottom: 8px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 1.4;
+}
+
+.made-to-order {
+  background: #e8f2ff;
+  color: #2869b5;
+}
+
+.in-stock {
+  background: #e7f6eb;
+  color: #27834a;
+}
+
+
+/* カート機能（既存デザインは変更しない） */
+.cart-fab { position:fixed;right:16px;bottom:18px;z-index:20;border:0;border-radius:30px;background:#493c42;color:white;padding:12px 18px;box-shadow:0 3px 12px #0002;cursor:pointer;font-size:14px; }
+.cart-add { margin-top:12px;width:100%;border:0;border-radius:7px;background:#f5dbe5;color:#493c42;padding:10px 6px;font-weight:bold;cursor:pointer; }
+.cart-overlay { position:fixed;inset:0;background:#0006;z-index:30;display:none;align-items:center;justify-content:center;padding:16px; }
+.cart-overlay.is-open { display:flex; }
+.cart-panel { background:#fffafc;border-radius:14px;padding:20px;width:min(100%,480px);max-height:90vh;overflow-y:auto; }
+.cart-panel h2 {margin:0 0 14px;font-size:19px;}
+.cart-close {float:right;background:none;border:0;font-size:24px;cursor:pointer;color:#493c42;}
+.cart-field {display:block;margin:14px 0;font-size:13px;}
+.cart-field select,.cart-field input {display:block;margin-top:6px;width:100%;padding:10px;border:1px solid #e7cfd8;border-radius:7px;background:white;font-size:15px;}
+.cart-primary {width:100%;border:0;border-radius:8px;background:#eeb8cd;color:#493c42;padding:12px;font-weight:bold;cursor:pointer;margin-top:12px;}
+.cart-row {border-bottom:1px solid #f2e4e9;padding:12px 0;font-size:13px;}
+.cart-row-controls {display:flex;align-items:center;gap:8px;margin-top:8px;}
+.cart-row-controls button {border:1px solid #e7cfd8;background:white;border-radius:5px;padding:5px 10px;cursor:pointer;}
+.cart-note {font-size:12px;line-height:1.6;color:#77666e;}
+ 
+.product-spec {
+  font-size: 10px;
+  line-height: 1.6;
+  color: #887880;
+  margin: 0 0 8px;
+  text-align: left;
+  white-space: normal;
+}
+ 
+/* 公式SNSリンク：ヒーロー内の余白に配置 */
+.hero-social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 18px 12px 0;
+}
+.hero-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 9px 18px;
+  border: 1px solid #f0d4df;
+  border-radius: 999px;
+  background: #fff;
+  color: #493c42;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: bold;
+}
+.hero-social a:focus-visible {
+  outline: 2px solid #e35b90;
+  outline-offset: 3px;
+}
+</style>
 </head>
 <body>
 
@@ -111,31 +214,178 @@
   <img src="kupishop01.png" alt="くぴ">
   <h2>Welcome to kupi SHOP</h2>
   <p>kupiのオフィシャルグッズショップへようこそ♡</p>
+  <nav class="hero-social" aria-label="くぴのSNS">
+    <a href="https://17.live/s/u/c8c6fab4-b3be-49ce-864e-4df1290aa5cc" target="_blank" rel="noopener noreferrer">17LIVE</a>
+    <a href="https://www.instagram.com/kupi.17live/" target="_blank" rel="noopener noreferrer">Instagram</a>
+  </nav>
 </section>
 
 <main class="shop">
   <h2>GOODS COLLECTION</h2>
-  <div class="products">
-    <div class="product">
-      <div class="product-image">商品画像</div>
-      <div class="product-info">
-        <p class="product-name">商品登録予定</p>
-        <p class="price">価格未設定</p>
-      </div>
-    </div>
-    <div class="product">
-      <div class="product-image">商品画像</div>
-      <div class="product-info">
-        <p class="product-name">商品登録予定</p>
-        <p class="price">価格未設定</p>
-      </div>
+  
+
+
+<div class="products">
+  <div class="product">
+    <img src="item01.jpg" alt="Tシャツ">
+    <div class="product-info">
+      <span class="product-status made-to-order">受注生産</span>
+      <p class="product-name">Tシャツ</p>
+      <p class="product-spec">
+        綿100％ セミコーマ糸（5.6oz）
+      </p>
+      <p class="price">&yen;4,400（税込）</p>
+      <button class="cart-add" type="button" data-product="0">カートに入れる</button>
     </div>
   </div>
+
+  <div class="product">
+    <img src="item02.jpg" alt="トートバッグ">
+    <div class="product-info">
+      <span class="product-status made-to-order">受注生産</span>
+      <p class="product-name">トートバッグ</p>
+      <p class="product-spec">
+        横30×高20×マチ10cm<br>
+        持ち手29cm／容量4L<br>
+        綿100％・12oz
+      </p>
+      <p class="price">&yen;2,750（税込）</p>
+      <button class="cart-add" type="button" data-product="1">カートに入れる</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="item03.jpg" alt="マグカップ">
+    <div class="product-info">
+      <span class="product-status in-stock">在庫品</span>
+      <p class="product-name">マグカップ</p>
+      <p class="product-spec">サイズ：直径約8cm × 高さ約9.5cm<br>素材：陶器<br>重量：約350g／容量：350ml</p>
+      <p class="price">&yen;3,300（税込）</p>
+      <button class="cart-add" type="button" data-product="2">カートに入れる</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="item04.jpg" alt="LOOP出演記念タオル">
+    <div class="product-info">
+      <span class="product-status made-to-order">受注生産</span>
+      <p class="product-name">LOOP出演記念<br>タオル</p>
+      <p class="product-spec">サイズ：横110 × 縦21cm<br>素材：ポリエステル100％<br>厚さ：260g/㎡<br>中国製</p>
+      <p class="price">&yen;3,850（税込）</p>
+      <button class="cart-add" type="button" data-product="3">カートに入れる</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="item05.jpg" alt="LOOP出演記念応援スローガン">
+    <div class="product-info">
+      <span class="product-status in-stock">在庫品</span>
+      <p class="product-name">LOOP出演記念応援<br>スローガン</p>
+      <p class="product-spec">基材：ポリエステル<br>サイズ：幅30cm×高さ10cm<br>厚み：300μ</p>
+      <p class="price">&yen;880（税込）</p>
+      <button class="cart-add" type="button" data-product="4">カートに入れる</button>
+    </div>
+  </div>
+
+  <div class="product">
+    <img src="item07.jpg" alt="LOOP出演記念缶バッジ">
+    <div class="product-info">
+      <span class="product-status in-stock">在庫品</span>
+      <p class="product-name">LOOP出演記念<br>缶バッジ</p>
+      <p class="product-spec">直径44mm</p>
+      <p class="price">&yen;550（税込）</p>
+      <button class="cart-add" type="button" data-product="5">カートに入れる</button>
+    </div>
+  </div>
+</div>
+
+
 </main>
 
 <footer>
   © KUPI OFFICIAL SHOP
 </footer>
+
+
+<button class="cart-fab" id="openCart" type="button">🛒 カート <span id="cartCount">0</span></button>
+<div class="cart-overlay" id="cartOverlay" role="presentation">
+  <section class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <button class="cart-close" id="closeCart" type="button" aria-label="閉じる">×</button>
+    <h2 id="cartTitle">ショッピングカート</h2>
+    <div id="cartBody"></div>
+  </section>
+</div>
+<div class="cart-overlay" id="optionsOverlay" role="presentation">
+  <section class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="optionsTitle">
+    <button class="cart-close" id="closeOptions" type="button" aria-label="閉じる">×</button>
+    <h2 id="optionsTitle">商品を選択</h2>
+    <form id="optionsForm">
+      <div id="optionsFields"></div>
+      <label class="cart-field">数量<input id="optionsQty" type="number" min="1" max="99" value="1" required></label>
+      <button class="cart-primary" type="submit">カートに追加</button>
+    </form>
+  </section>
+</div>
+<script>
+(() => {
+  const products = [
+    {name:'Tシャツ',made:true,price:4400},
+    {name:'トートバッグ',made:true,price:2750},
+    {name:'マグカップ',made:false,price:3300},
+    {name:'LOOP出演記念タオル',made:true,price:3850},
+    {name:'LOOP出演記念応援スローガン',made:false,price:880},
+    {name:'LOOP出演記念缶バッジ',made:false,price:550}
+  ];
+  const storageKey='kupi-shop-cart-v1';
+  let cart=[];
+  try { const saved=JSON.parse(localStorage.getItem(storageKey)||'[]');if(Array.isArray(saved)) cart=saved.filter(x=>Number.isInteger(x.id)&&products[x.id]&&Number.isInteger(x.qty)&&x.qty>0); } catch(e) {}
+  const byId=id=>document.getElementById(id);
+  const escapeHtml=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const save=()=>{localStorage.setItem(storageKey,JSON.stringify(cart));byId('cartCount').textContent=cart.reduce((n,x)=>n+x.qty,0);};
+  let selectedId=0;
+  function openOptions(id){
+    selectedId=id;
+    byId('optionsTitle').textContent=products[id].name;
+    byId('optionsQty').value='1';
+    byId('optionsFields').innerHTML=id===0 ?
+      '<label class="cart-field">カラー<select id="shirtColor" required><option value="">選択してください</option><option>ホワイト</option><option>ブラック</option><option>アッシュ</option><option>アイボリー</option><option>ベビーピンク</option><option>ライトブルー</option></select></label><label class="cart-field">サイズ<select id="shirtSize" required><option value="">選択してください</option><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option><option>XXXL</option></select></label><p class="cart-note">※カラーは仮設定です。販売色が決まったら変更します。</p>' : '';
+    byId('optionsOverlay').classList.add('is-open');
+  }
+  const yen = amount => '¥' + amount.toLocaleString('ja-JP');
+  function showCart(){
+    const body=byId('cartBody');
+    if(!cart.length){body.innerHTML='<p>カートは空です。</p>';}
+    else {
+      const total=cart.reduce((sum,x)=>sum+products[x.id].price*x.qty,0);
+      body.innerHTML=cart.map((x,i)=>`<div class="cart-row"><strong>${escapeHtml(products[x.id].name)}</strong>${x.color?' / '+escapeHtml(x.color):''}${x.size?' / '+escapeHtml(x.size):''}<div class="cart-note">単価：${yen(products[x.id].price)}（税込） ／ 小計：${yen(products[x.id].price*x.qty)}（税込）</div><div class="cart-row-controls"><button type="button" data-change="${i}" data-delta="-1" aria-label="数量を減らす">−</button><span>${x.qty}点</span><button type="button" data-change="${i}" data-delta="1" aria-label="数量を増やす">＋</button><button type="button" data-remove="${i}">削除</button></div></div>`).join('')+`<p><strong>合計：${yen(total)}（税込）</strong></p><p class="cart-note">※商品代金のみの合計です。注文・決済機能はありません。</p>`;
+    }
+    byId('cartOverlay').classList.add('is-open');
+  }
+  document.querySelectorAll('.cart-add').forEach(b=>b.addEventListener('click',()=>openOptions(Number(b.dataset.product))));
+  byId('optionsForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    const qty=Number(byId('optionsQty').value);
+    if(!Number.isInteger(qty)||qty<1||qty>99)return;
+    const color=selectedId===0?byId('shirtColor').value:'';
+    const size=selectedId===0?byId('shirtSize').value:'';
+    if(selectedId===0&&(!color||!size))return;
+    const existing=cart.find(x=>x.id===selectedId&&x.color===color&&x.size===size);
+    if(existing)existing.qty+=qty;else cart.push({id:selectedId,color,size,qty});
+    save();byId('optionsOverlay').classList.remove('is-open');showCart();
+  });
+  byId('cartBody').addEventListener('click',e=>{
+    const btn=e.target.closest('button');if(!btn)return;
+    if(btn.dataset.remove!==undefined){cart.splice(Number(btn.dataset.remove),1);}
+    else if(btn.dataset.change!==undefined){const i=Number(btn.dataset.change);cart[i].qty+=Number(btn.dataset.delta);if(cart[i].qty<=0)cart.splice(i,1);}
+    save();showCart();
+  });
+  byId('openCart').addEventListener('click',showCart);
+  byId('closeCart').addEventListener('click',()=>byId('cartOverlay').classList.remove('is-open'));
+  byId('closeOptions').addEventListener('click',()=>byId('optionsOverlay').classList.remove('is-open'));
+  ['cartOverlay','optionsOverlay'].forEach(id=>byId(id).addEventListener('click',e=>{if(e.target===byId(id))byId(id).classList.remove('is-open');}));
+  save();
+})();
+</script>
 
 </body>
 </html>
